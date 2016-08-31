@@ -41,13 +41,16 @@
 				 </div>
 			</div>
 			
-			<div  class="row">			
+			<div  class="row" ng-class="{ 'has-error' : principalForm.idEmail.$invalid && !principalForm.idEmail.$pristine }">			
 				 <div class="form-group col-md-4">
 					<label>e-mail: </label>
-					<input class="form-control" 
+					<input id="idEmail"
+						   name="idEmail"
+						   class="form-control" 
 						   ng-model="usuario.dsEmail" 
 						   type="email" 
 						   required>
+					<p ng-show="principalForm.idEmail.$error.email" class="help-block">digite um e-mail válido.</p>
 				 </div>
 			</div>
 			
