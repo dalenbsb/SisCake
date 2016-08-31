@@ -8,6 +8,8 @@ app.controller('manterUsuarioCtrl', function(Restangular, $scope) {
         dsEmail:"",
         senha:""
 	}
+	
+	$scope.minlength = 3;
 
 	$scope.usuario = angular.copy($scope.usuarioVazio);
 	

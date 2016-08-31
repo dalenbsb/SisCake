@@ -14,16 +14,18 @@
 			</div>
 			
 			<div  class="row">
-				<div  class="form-group col-md-7" ng-class="{ 'has-error' : usuario.nome.$invalid && !usuario.nome.$pristine }">
+				<div  class="form-group col-md-7" ng-class="{ 'has-error' : principalForm.idNome.$invalid && !principalForm.idNome.$pristine }">
 					<label>Nome: </label>
-					<input class="form-control" 
+					<input id="idNome"
+						   name="idNome"
+						   class="form-control" 
 						   ng-model="usuario.nome" 
 						   type="text"
-						   ng-minlength="3"
+						   ng-minlength="minlength"
 						   ng-maxlength="255" 
 						   required>
-					<p ng-show="usuario.nome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
-        			<p ng-show="usuario.nome.$error.maxlength" class="help-block">Nome no máximo 255 caracteres.</p>
+					<p ng-show="principalForm.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
+        			<p ng-show="principalForm.idNome.$error.maxlength" class="help-block">Nome no máximo 255 caracteres.</p>
 				</div>
 			</div>
 			
@@ -32,7 +34,9 @@
 					<label>CPF: </label>
 					<input class="form-control" 
 						   ng-model="usuario.cpf" 
-						   type="text" 
+						   type="text"
+						   ng-minlength="11"
+						   ng-maxlength="11"  
 						   required>
 				 </div>
 			</div>
