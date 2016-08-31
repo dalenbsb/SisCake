@@ -2,8 +2,13 @@ package br.com.siscake.dao;
 
 import java.util.List;
 
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
 import br.com.siscake.modelo.Usuario;
 
+
+//@Repository
 //public interface UsuarioDao extends PagingAndSortingRepository<Usuario, Long>{
 public interface UsuarioDao{
 	

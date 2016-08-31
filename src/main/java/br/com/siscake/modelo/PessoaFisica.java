@@ -9,10 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
-@Entity(name="tb_pessoa")
+@Table(name="tb_pessoa")
+@Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 public class PessoaFisica implements Serializable {
+
+	private static final long serialVersionUID = 3474224153881097464L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

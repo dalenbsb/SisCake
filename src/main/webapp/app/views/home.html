@@ -1,9 +1,15 @@
-<div ng-controller="CrudCtrl" class="panel  panel-default" >
+<div ng-controller="HomeCtrl" class="panel  panel-default" >
 	<form name="principalForm">
+		<div>
+		 	<ul class="nav nav-tabs">
+		      <li ng-class="{active: activetab == '/'}"><a href="#/home">Inicio</a></li>
+		      <li ng-class="{active: activetab == '/pesquisarUsuario'}"><a href="#/pesquisarUsuario">Usuários</a></li>
+	   		</ul>
+	   </div>
+	
 		<div class="panel-heading">
 			<h1>SISCAKE</h1>
 		</div>
 	
-		<button class="btn btn-primary" ng-click="salvar()">Salvar</button>
 	</form>
 </div>

@@ -17,7 +17,11 @@
 	<!-- Desta forma utiliza o persistence unit -->
 	<bean name="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="persistenceUnitName" value="siscake-pu" />
+	
+	    <property name="packagesToScan" value="br.com.siscake.modelo"/>
 	</bean>
+	
+	
 
 	<!-- Reconhecer as anotações -->
 	<tx:annotation-driven transaction-manager="txManager" />
@@ -27,6 +31,10 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
-	<jpa:repositories base-package="br.com.siscake.repositorio"	transaction-manager-ref="txManager" />
+	<jpa:repositories base-package="br.com.siscake.dao.impl" transaction-manager-ref="txManager" />
+	
+<!-- 	<context:component-scan base-package="br.com.siscake"/> -->
+<!-- 	<context:component-scan base-package="br.com.siscake.repositorio"/> -->
+	<context:component-scan base-package="br.com.siscake.dao.impl"/>
 	
 </beans>

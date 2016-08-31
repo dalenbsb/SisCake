@@ -2,8 +2,10 @@ package br.com.siscake.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Entity(name="tb_usuario")
+@Table(name="tb_usuario")
+@Entity
 public class Usuario extends PessoaFisica {
 	
 	private static final long serialVersionUID = 1L;

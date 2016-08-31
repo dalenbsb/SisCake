@@ -30,8 +30,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	
 	@Override
 	public List<Usuario> findUsuarios(Usuario usuario) {
-		
-		return usuarioDao.findUsuarios(usuario);
+		return usuarioDao.findUsuarios(usuario);	
 	}
 	
 	@Override

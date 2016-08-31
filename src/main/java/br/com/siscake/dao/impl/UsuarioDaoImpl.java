@@ -15,35 +15,60 @@ import br.com.siscake.modelo.Usuario;
 public class UsuarioDaoImpl  implements UsuarioDao {
 
 	@PersistenceContext
-	private EntityManager manager;
+	private EntityManager em;
 	
 	@Override
 	public void saveUsuario(Usuario usuario){
-		manager.persist(usuario);
+		em.persist(usuario);
 	}
 	
 	@Override
 	public void updateUsuario(Usuario usuario) {
-		manager.merge(usuario);
+		em.merge(usuario);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Usuario> findUsuarios(Usuario usuario) {
-		//TODO - criar query
-		Query query = manager.createQuery("");
 		
-		return query.getResultList();
+		Query query = em.createQuery(montarConsultaUsuario(usuario));
+		
+		return (List<Usuario>) query.getResultList();
+	}
+	
+	private String montarConsultaUsuario(Usuario usuario){
+		
+		StringBuilder hql = new StringBuilder();
+		hql.append(" Select ");
+		hql.append(" us ");
+		hql.append(" From Usuario us ");
+		hql.append(" WHERE 1 = 1 ");
+	
+		if(usuario != null){
+			if(usuario.getId() != null){
+				hql.append(" and us.id= "+ usuario.getId());
+			}else{
+				if(usuario.getNome() != null && !usuario.getNome().isEmpty()){
+					hql.append(" and upper(us.nome) like upper('%"+ usuario.getNome() +"%')");
+				}
+				if(usuario.getCpf() != null && !usuario.getCpf().isEmpty()){
+					hql.append(" and us.cpf= '"+ usuario.getCpf() +"'");
+				}
+			}
+		}
+		
+		return hql.toString();
 	}
 	
 	@Override
 	public Usuario findUsuarioById(Long idUsuario) {
-		return manager.find(Usuario.class, idUsuario);
+		return em.find(Usuario.class, idUsuario);
 	}
 	
 	@Override
 	public void deleteUsuario(Long idUsuario) {
 		Usuario usuario = findUsuarioById(idUsuario);
-		manager.remove(usuario);
+		em.remove(usuario);
 	}
 
 }
