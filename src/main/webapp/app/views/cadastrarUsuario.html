@@ -8,7 +8,7 @@
 			
 			<div  class="row">
 				<div  class="form-group col-md-1">
-					<label>ID: </label>
+					<label>ID:</label>
 					<div  class="form-control" >{{usuario.id}}</div>
 				</div>
 			</div>
@@ -22,10 +22,10 @@
 						   ng-model="usuario.nome" 
 						   type="text"
 						   ng-minlength="minlength"
-						   ng-maxlength="255" 
+						   ng-maxlength="150"
 						   required>
 					<p ng-show="principalForm.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
-        			<p ng-show="principalForm.idNome.$error.maxlength" class="help-block">Nome no máximo 255 caracteres.</p>
+        			<p ng-show="principalForm.idNome.$error.maxlength" class="help-block">Nome no máximo 150 caracteres.</p>
 				</div>
 			</div>
 			
@@ -56,9 +56,31 @@
 			
 			<div  class="row">
 				<div class="form-group col-md-4">
-					<button class="btn btn-primary" ng-click="salvar()">Salvar</button>
+					<a href="#/pesquisarUsuario">
+						<button class="btn btn-primary btn-md">voltar</button>
+					</a>
+					<button class="btn btn-success" ng-click="openModal()">Salvar</button>
 				</div>
 			</div>
+
+			<div id="idDivModal" tabindex="1" role="dialog" ng-show="showModal">
+	  			<div class="modal-dialog">
+	    			<div class="modal-content">
+	      				<div class="modal-header">
+	        				<button type="button" class="close" data-dismiss="modal" ng-click="closeModal()">×</button>
+	        					<h4 class="modal-title">Confirme a ação</h4>
+	      				</div>
+	      				<div class="modal-body">
+	        				<p>Deseja gravar os dados?</p>
+	      				</div>
+	      				<div class="modal-footer">
+	        				<button type="button" class="btn btn-primary" ng-click="salvar()">Sim</button>
+	        				<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="closeModal()">Não</button>
+	      				</div>
+	    			</div>
+	  			</div>
+			</div>
 		</div>
+		
 	</form>
 </div>

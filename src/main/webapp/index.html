@@ -12,6 +12,9 @@
 
 <body>
    
+   <!-- Directive criada para quando acontecer uma submissão aparecer o carregando -->
+   <loading></loading>
+   
    <div class="container" ng-view></div>
    
    <script src="vendor/underscore/1.7.0/underscore-min.js"></script>
@@ -21,10 +24,17 @@
    <script src="vendor/restangular/1.4.0/restangular.min.js"></script>
    <script src="vendor/angular-route/1.3.10/angular-route.min.js"></script>
    <script src="vendor/ng-table/0.3.1/ng-table.min.js"></script>
+   
    <script src="vendor/angular-ui-booststrap/0.12.0/ui-bootstrap-0.12.0.js"> </script>
    <script src="vendor/angular-ui-booststrap/0.12.0/ui-bootstrap-tpls-0.12.0.js"> </script>
 
+   <!-- Import principal -->
    <script src="app/app.js"></script>
+   
+   <!-- imports das diretivas criadas -->
+   <script src="app/diretivas/diretivaLoading.js"></script>
+   
+   <!-- imports das controllers criadas -->
    <script src="app/controllers/controllers.js"></script>
    
 </body>

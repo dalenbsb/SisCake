@@ -1,4 +1,6 @@
 <div ng-controller="manterUsuarioCtrl" class="panel panel-default" >
+<!-- 	 <div ng-show="loading" class="loading">LOADING...</div> -->
+	
 	<form name="principalForm">
 		
 		
@@ -58,7 +60,9 @@
 					<td style="padding: 5px">{{ u.nome }}</td>
 					<td style="padding: 5px">{{ u.cpf}}</td>
 					<td>
-						acao
+						<a href="#/cadastrarUsuario">
+							<span class="glyphicon glyphicon-edit"></span></p>
+						</a>
 					</td>
 				</tr>
 			</table>

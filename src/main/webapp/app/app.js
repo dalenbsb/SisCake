@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('app', [ 'restangular', 'ngRoute','ngTable','ui.bootstrap' ]);
+var app = angular.module('app', [ 'restangular', 'ngRoute','ngTable','ui.bootstrap']);
 
 app.config([ 'RestangularProvider', '$routeProvider',
 		function(RestangularProvider, $routeProvider) {
@@ -12,6 +12,12 @@ app.config([ 'RestangularProvider', '$routeProvider',
 				templateUrl : 'app/views/home.html',
 				controller : 'HomeCtrl',
 			})
+			
+			//Rota Modal
+			.when('/dialog', {
+				templateUrl : 'app/diretivas/modalCarregando.html',
+				controller:'MyCtrlDialog'
+    		})
 
 			//Rotas do cadastro de usuario
 			.when('/cadastrarUsuario', {
@@ -29,4 +35,6 @@ app.config([ 'RestangularProvider', '$routeProvider',
 			});
 		} 
 ]);
+
+
 

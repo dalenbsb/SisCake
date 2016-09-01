@@ -1,5 +1,5 @@
 'use strict';
-app.controller('manterUsuarioCtrl', function(Restangular, $scope) {
+app.controller('manterUsuarioCtrl', function(Restangular, $scope, $modal) {
 	
 	var usuarioVazio = {
         id: null,
@@ -8,6 +8,7 @@ app.controller('manterUsuarioCtrl', function(Restangular, $scope) {
         dsEmail:"",
         senha:""
 	}
+	
 	
 	$scope.minlength = 3;
 
@@ -61,9 +62,29 @@ app.controller('manterUsuarioCtrl', function(Restangular, $scope) {
         });
         console.log("Usuarios listado");
     };
-
+    
+    
+    
+    $scope.openModal = function(){
+    	console.log("Abrindo modal");
+    	$scope.showModal = true;
+    }
+    
+    $scope.closeModal = function(){
+    	console.log("fechando modal");
+    	$scope.showModal = false;
+    }
+    
 });
 
+//app.controller('MyCtrlDialog', function($scope) {
+//
+//	
+//    $scope.open = function(){
+//    $scope.showModal = !$scope.showModal;
+//    };
+//
+//});
 
 app.controller('HomeCtrl', function($rootScope, $location) {
 //    $rootScope.activetab = $location.path();
