@@ -1,7 +1,7 @@
 <div ng-controller="manterUsuarioCtrl" class="panel panel-default" >
-	<form name="formCadastrarUsuario">
+	<form name="formAlterarUsuario">
 		<div class="panel-heading">
-			<h1>Cadastro de Usuário</h1>
+			<h1>Alterar Usuário</h1>
 		</div>
 		
 		<div class="panel-body">
@@ -14,7 +14,7 @@
 			</div>
 			
 			<div  class="row">
-				<div  class="form-group col-md-7" ng-class="{ 'has-error' : formCadastrarUsuario.idNome.$invalid && !formCadastrarUsuario.idNome.$pristine }">
+				<div  class="form-group col-md-7" ng-class="{ 'has-error' : formAlterarUsuario.idNome.$invalid && !formAlterarUsuario.idNome.$pristine }">
 					<label>Nome: </label>
 					<input id="idNome"
 						   name="idNome"
@@ -24,8 +24,8 @@
 						   ng-minlength="minlength"
 						   ng-maxlength="150"
 						   required>
-					<p ng-show="formCadastrarUsuario.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
-        			<p ng-show="formCadastrarUsuario.idNome.$error.maxlength" class="help-block">Nome no máximo 150 caracteres.</p>
+					<p ng-show="formAlterarUsuario.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
+        			<p ng-show="formAlterarUsuario.idNome.$error.maxlength" class="help-block">Nome no máximo 150 caracteres.</p>
 				</div>
 			</div>
 			
@@ -41,7 +41,7 @@
 				 </div>
 			</div>
 			
-			<div  class="row" ng-class="{ 'has-error' : formCadastrarUsuario.idEmail.$invalid && !formCadastrarUsuario.idEmail.$pristine }">			
+			<div  class="row" ng-class="{ 'has-error' : formAlterarUsuario.idEmail.$invalid && !formAlterarUsuario.idEmail.$pristine }">			
 				 <div class="form-group col-md-4">
 					<label>e-mail: </label>
 					<input id="idEmail"
@@ -50,7 +50,7 @@
 						   ng-model="usuario.dsEmail" 
 						   type="email" 
 						   required>
-					<p ng-show="formCadastrarUsuario.idEmail.$error.email" class="help-block">digite um e-mail válido.</p>
+					<p ng-show="formAlterarUsuario.idEmail.$error.email" class="help-block">digite um e-mail válido.</p>
 				 </div>
 			</div>
 			
@@ -63,7 +63,9 @@
 				</div>
 			</div>
 			
-	<!-- 		<div class="modal" id="modal" tabindex="-1" role="dialog" ng-show="showModal"> -->
+		</div>
+		
+<!-- 		<div class="modal" id="modal" tabindex="-1" role="dialog" ng-show="showModal"> -->
 			<div id="modal" tabindex="-1" role="dialog" ng-show="showModal" style="float: left; margin-left: 218px; margin-top: -326px;">
 	  			<div class="modal-dialog" role="document">
 	    			<div class="modal-content">

@@ -6,14 +6,20 @@
    <meta http-equiv="content-language" content="pt-br" />
    <title>SISCAKE</title>
    
-   <link rel="stylesheet" href="assets/bootstrap/3.3.2/css/bootstrap.min.css" />
-   
+   <link rel="stylesheet" href="assets/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 
 <body>
    
    <!-- Directive criada para quando acontecer uma submissão aparecer o carregando -->
    <loading></loading>
+
+	<div class="container">
+	 	<ul class="nav nav-tabs">
+	      <li ng-class="{active: activetab == '/'}"><a href="#/home">Inicio</a></li>
+	      <li ng-class="{active: activetab == '/pesquisarUsuario'}"><a href="#/pesquisarUsuario">Usuários</a></li>
+   		</ul>
+   </div>
    
    <div class="container" ng-view></div>
    

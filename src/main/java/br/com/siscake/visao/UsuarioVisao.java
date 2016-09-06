@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,20 +35,18 @@ public class UsuarioVisao {
 		List<Usuario> listUsuario = usuarioService.findUsuarios(null);
 		return new ResponseEntity<List<Usuario>>(listUsuario, HttpStatus.OK);
 	}
-
 	
-	@RequestMapping(value="/findUsuarioByParam",method = RequestMethod.POST, produces = JSON, consumes= JSON)
+	@RequestMapping(value="/findUsuarioByParam",method = RequestMethod.POST, produces = JSON, consumes = JSON)
 	public ResponseEntity<List<Usuario>> findUsuarioByParam(@RequestBody Usuario usuario) {
 		List<Usuario> listUsuario = usuarioService.findUsuarios(usuario);
 		return new ResponseEntity<List<Usuario>>(listUsuario, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/findUsuarioById",method = RequestMethod.POST, produces = JSON, consumes= JSON)
-	public ResponseEntity<Usuario> findUsuarioById(@RequestBody Long idUsuario) {
-		Usuario usuario = usuarioService.findUsuarioById(idUsuario);
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+	@RequestMapping(value="/findUsuarioById/{idUsuario}", method = RequestMethod.GET, produces = JSON)
+	public ResponseEntity<Usuario> findUsuarioById(@PathVariable("idUsuario") Long idUsuario) {
+		Usuario usu = usuarioService.findUsuarioById(idUsuario);
+		return new ResponseEntity<Usuario>(usu, HttpStatus.OK);
 	}
-	
 	
 	@RequestMapping(value="/saveUsuario", method = RequestMethod.POST, consumes = JSON)
 	@ResponseBody

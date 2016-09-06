@@ -3,7 +3,6 @@
 	
 	<form name="principalForm">
 		
-		
 		<div class="panel-heading">
 			<h1>Pesquisa de Usuário</h1>
 		</div>
@@ -36,14 +35,14 @@
 					<input class="form-control" 
 						   ng-model="usuario.cpf" 
 						   type="text"
-						   ng-minlength="11"
-						   ng-maxlength="11">
+						   maxlength="11"
+						   ng-minlength="11">
 				 </div>
 			</div>
 			
 			<div  class="row">
 				<div class="form-group col-md-4">
-					<button class="btn btn-default" ng-click="findUsuarioByParam()">Pesquisar</button>
+					<button class="btn btn-primary" ng-click="findUsuarioByParam()">Pesquisar</button>
 				</div>
 			</div>
 		
@@ -60,21 +59,21 @@
 					<td style="padding: 5px">{{ u.nome }}</td>
 					<td style="padding: 5px">{{ u.cpf}}</td>
 					<td>
-						<a href="#/cadastrarUsuario">
-							<span class="glyphicon glyphicon-edit"></span></p>
-						</a>
+						<button type="button" class="btn btn-default" ng-click="irAlterarUsuario(u.id)">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</form>
 	<form name="auxForm">
-			<div  class="row">
-				<div class="form-group col-md-4">
-					<a href="#/cadastrarUsuario">
-						<button class="btn btn-default">Cadastrar Usuário</button>
-					</a>
-				</div>
+		<div  class="row">
+			<div class="form-group col-md-4">
+				<a href="#/cadastrarUsuario">
+					<button class="btn btn-success">Cadastrar Usuário</button>
+				</a>
 			</div>
+		</div>
 	</form>
 </div>
