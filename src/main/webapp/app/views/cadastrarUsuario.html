@@ -1,4 +1,4 @@
-<div ng-controller="manterUsuarioCtrl" class="panel panel-default" >
+<div ng-controller="cadastrarUsuarioCtrl" class="panel panel-default" >
 	<form name="formCadastrarUsuario">
 		<div class="panel-heading">
 			<h1>Cadastro de Usuário</h1>
@@ -54,34 +54,32 @@
 				 </div>
 			</div>
 			
-			<div  class="row">
+			<div  class="row" ng-controller="salvarAlterarCtrl">
 				<div class="form-group col-md-4">
 					<a href="#/pesquisarUsuario">
 						<button class="btn btn-primary btn-md">voltar</button>
 					</a>
 					<button class="btn btn-success" data-toggle="#modal" ng-click="openModal()">Salvar</button>
 				</div>
-			</div>
-			
-	<!-- 		<div class="modal" id="modal" tabindex="-1" role="dialog" ng-show="showModal"> -->
-			<div id="modal" tabindex="-1" role="dialog" ng-show="showModal" style="float: left; margin-left: 218px; margin-top: -326px;">
-	  			<div class="modal-dialog" role="document">
-	    			<div class="modal-content">
-	      				<div class="modal-header">
-	        				<button type="button" class="close" ng-click="closeModal()">×</button>
-	        					<h4 class="modal-title">Confirme a ação</h4>
-	      				</div>
-	      				<div class="modal-body">
-	        				<p>Deseja gravar os dados?</p>
-	      				</div>
-	      				<div class="modal-footer">
-	        				<button type="button" class="btn btn-danger" ng-click="closeModal()">Não</button>
-	        				<button type="button" class="btn btn-primary" ng-click="salvar()">Sim</button>
-	      				</div>
-	    			</div>
-	  			</div>
+				
+				<div id="modal" tabindex="-1" role="dialog" ng-show="showModal" style="float: left; margin-left: 218px; margin-top: -326px;">
+		  			<div class="modal-dialog" role="document">
+		    			<div class="modal-content">
+		      				<div class="modal-header">
+		        				<button type="button" class="close" ng-click="closeModal()">×</button>
+		        					<h4 class="modal-title">Confirme a ação</h4>
+		      				</div>
+		      				<div class="modal-body">
+		        				<p>Deseja gravar os dados?</p>
+		      				</div>
+		      				<div class="modal-footer">
+		        				<button type="button" class="btn btn-danger" ng-click="closeModal()">Não</button>
+		        				<button type="button" class="btn btn-primary" ng-click="salvar()">Sim</button>
+		      				</div>
+		    			</div>
+		  			</div>
+				</div>
 			</div>
 		</div>
-		
 	</form>
 </div>

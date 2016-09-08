@@ -1,5 +1,4 @@
-<div ng-controller="manterUsuarioCtrl" class="panel panel-default" >
-<!-- 	 <div ng-show="loading" class="loading">LOADING...</div> -->
+<div ng-controller="pesquisarUsuarioCtrl" class="panel panel-default" >
 	
 	<form name="principalForm">
 		
@@ -57,11 +56,14 @@
 				<tr ng-repeat="u in usuarios">
 					<td style="padding: 5px">{{ u.id }}</td>
 					<td style="padding: 5px">{{ u.nome }}</td>
-					<td style="padding: 5px">{{ u.cpf}}</td>
+					<td style="padding: 5px">{{ u.cpf }}</td>
 					<td>
-						<button type="button" class="btn btn-default" ng-click="irAlterarUsuario(u.id)">
-							<span class="glyphicon glyphicon-edit"></span>
-						</button>
+						<!-- Passagem de parametro na url -->
+						<a href="#/alterarUsuario/{{u.id}}">
+							<button type="button" class="btn btn-default">
+								<span class="glyphicon glyphicon-edit"></span>
+							</button>
+						</a>
 					</td>
 				</tr>
 			</table>

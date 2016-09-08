@@ -17,15 +17,16 @@ app.config([ 'RestangularProvider', '$routeProvider',
 			//#########################################################################
 			.when('/cadastrarUsuario', {
 				templateUrl : 'app/views/cadastrarUsuario.html',
-				controller : 'manterUsuarioCtrl',
+				controller : 'cadastrarUsuarioCtrl',
 			})
+			//aqui usa passagem de parametro na rota
 			.when('/alterarUsuario/:idUsuario', {
 				templateUrl : 'app/views/alterarUsuario.html',
-				controller : 'manterUsuarioCtrl',
+				controller : 'alterarUsuarioCtrl',
 			})
 			.when('/pesquisarUsuario', {
 				templateUrl : 'app/views/pesquisarUsuario.html',
-				controller : 'manterUsuarioCtrl',
+				controller : 'pesquisarUsuarioCtrl',
 			})
 			//#########################################################################
 			
