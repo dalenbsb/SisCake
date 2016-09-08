@@ -24,15 +24,30 @@ app.controller('pesquisarUsuarioCtrl', function(Restangular,$rootScope, $scope, 
     };
     
     $scope.findUsuarioByParam = function() {
-        //listagem
-        Restangular.all("manterUsuario/findUsuarioByParam").post($scope.usuario)
-        	.then(function(obj) {
-        		//carrega a lista de usuarios.
-        		$scope.usuarios = obj;
-        		console.log(obj);
-        	}
-        );
-        console.log("Usuarios listado");
+    	
+//    	if(){
+    	
+	        //listagem
+	        Restangular.all("manterUsuario/findUsuarioByParam").post($scope.usuario)
+	        	.then(function(obj) {
+	        		//carrega a lista de usuarios.
+	        		$scope.usuarios = obj;
+	        		console.log(obj);
+	        	}
+	        );
+	        console.log("Usuarios listado");
+//    	}else{
+//    		console.log("Mandar mensagens");
+//    	}
+    };
+    
+    $scope.excluirUsuario = function(idUsuario) {
+    	var user = Restangular.one("manterUsuario/excluirUsuario", idUsuario);
+    	user.remove().then(function() {
+    		console.log("Usuário Deletado com sucesso!");
+    		$scope.findUsuarioByParam();
+    	 }
+    	);
     };
     
 });
@@ -43,10 +58,10 @@ app.controller('pesquisarUsuarioCtrl', function(Restangular,$rootScope, $scope, 
 //$rootScope = Responsável por todo o scopo da aplicação.
 //$scope = responsável pela tela do controller
 //$routeParams = Responsável por pegar os parametros passados na url.
-//$location = Responsável pelos camihos.
+//$location = Responsável pelos caminhos.
 app.controller('alterarUsuarioCtrl', function(Restangular, $rootScope, $scope, $routeParams, $location) {
 
-	$rootScope.activetab = $location.path();
+	$rootScope.activetab = $location.path();//ativa a aba
 	$scope.minlength = 3;
 	
 	var usuarioVazio = {
@@ -61,7 +76,7 @@ app.controller('alterarUsuarioCtrl', function(Restangular, $rootScope, $scope, $
 	
 	console.log("############## teste param: "+$routeParams.idUsuario);
 	
-	//Aqui --> pega o id do parametro passado na url, vai no back-end e retorna o dado
+	//Pega o id do parametro passado na url, vai no back-end e retorna o dado
 	Restangular.one("manterUsuario/findUsuarioById", $routeParams.idUsuario).get()
 	.then(function(data) {
 		console.log("antes de setar os dados no usuario");

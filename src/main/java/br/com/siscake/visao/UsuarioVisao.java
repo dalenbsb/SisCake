@@ -58,4 +58,10 @@ public class UsuarioVisao {
 			usuarioService.updateUsuario(usuario);
 		}
 	}
+	
+	@RequestMapping(value = "/excluirUsuario/{idUsuario}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public void deletar(@PathVariable("idUsuario") Long id) {
+		usuarioService.deleteUsuario(id);
+	}
 }

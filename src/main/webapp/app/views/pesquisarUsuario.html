@@ -13,9 +13,13 @@
 					<label>ID: </label>
 					<input class="form-control" 
 						   ng-model="usuario.id"
+						   name="id"
+						   maxlength="6"
+						   size="10px"
 						   ng-minlength="1"
 						   ng-maxlength="6"
-						   type="text">
+						   type="text"
+						   valid-number>
 				</div>
 			</div>
 			<div  class="row">
@@ -35,7 +39,8 @@
 						   ng-model="usuario.cpf" 
 						   type="text"
 						   maxlength="11"
-						   ng-minlength="11">
+						   ng-minlength="11"
+						   mask-cpf>
 				 </div>
 			</div>
 			
@@ -64,6 +69,11 @@
 								<span class="glyphicon glyphicon-edit"></span>
 							</button>
 						</a>
+						
+						<!-- Passagem de parametro na função -->
+						<button type="button" class="btn btn-default" ng-click="excluirUsuario(u.id)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
 					</td>
 				</tr>
 			</table>
