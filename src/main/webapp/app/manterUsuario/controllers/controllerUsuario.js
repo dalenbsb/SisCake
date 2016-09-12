@@ -24,21 +24,48 @@ app.controller('pesquisarUsuarioCtrl', function(Restangular,$rootScope, $scope, 
     };
     
     $scope.findUsuarioByParam = function() {
+    	$scope.messagemSucess=null;
+    	$scope.messagemInfo= null;
     	
-//    	if(){
-    	
+    	if($scope.usuario != undefined){
+    		if($scope.usuario.cpf != undefined){
+    			$scope.usuario.cpf = $scope.usuario.cpf.replace( /[^0-9]+/g, '');
+    		}
 	        //listagem
 	        Restangular.all("manterUsuario/findUsuarioByParam").post($scope.usuario)
 	        	.then(function(obj) {
 	        		//carrega a lista de usuarios.
 	        		$scope.usuarios = obj;
 	        		console.log(obj);
+	        		
+	        		if(objIsEmpty(obj)){
+	        			console.log("Mandar mensagens");
+	        			$scope.messagemSucess = 'Não foram encontrados registros para os filtros informados';
+	        		}
 	        	}
 	        );
 	        console.log("Usuarios listado");
-//    	}else{
-//    		console.log("Mandar mensagens");
-//    	}
+    	}else{
+    		$scope.messagemInfo = 'Favor preencher um dos filtros de busca';
+    		console.log("Mandar mensagens");
+    	}
+    	
+    	
+    	//verificar se é vazio
+    	function objIsEmpty(obj){
+    		var isEmpty = true;
+    		for (var i in obj) {
+    			
+    			console.log(obj.hasOwnProperty(i));
+    		    if(obj.hasOwnProperty(i)) {
+    		        isEmpty = false;
+    		        break;
+    		    }
+    		}
+    		
+    		return isEmpty;
+    	}
+    	
     };
     
     $scope.excluirUsuario = function(idUsuario) {
@@ -95,6 +122,8 @@ app.controller('salvarAlterarCtrl', function(Restangular, $scope, $location) {
     $scope.salvar = function() {
     	console.log("Entrando no função salvar");
         console.log($scope.usuario);
+        
+        $scope.usuario.cpf = $scope.usuario.cpf.replace( /[^0-9]+/g, '');
         Restangular.all("manterUsuario/saveUsuario").post($scope.usuario).then(function() {
             console.log("Usuario salvo");
         });

@@ -7,40 +7,59 @@
 		</div>
 		
 		<div class="panel-body">
-			
+		
+			<div class="container bg-warning">
+		   		<span>
+		   			{{messagemInfo}}
+		   		</span>
+		   </div>
+		   
+		   <div class="container bg-success">
+		   		<span>
+		   			{{messagemSucess}}
+		   		</span>
+		   </div>
+		   
 			<div  class="row">
-				<div  class="form-group col-md-1">
+				<div  class="form-group col-md-1" ng-class="{ 'has-error' : formCadastrarUsuario.id.$invalid && !formCadastrarUsuario.id.$pristine }">
 					<label>ID: </label>
 					<input class="form-control" 
 						   ng-model="usuario.id"
 						   name="id"
+						   id="id"
 						   maxlength="6"
 						   size="10px"
 						   ng-minlength="1"
 						   ng-maxlength="6"
 						   type="text"
 						   valid-number>
+					<p ng-show="principalForm.id.$error.minlength" class="help-block">Nome no mínimo 1 caracteres.</p>
+        			<p ng-show="principalForm.id.$error.maxlength" class="help-block">Nome no máximo 6 caracteres.</p>
 				</div>
 			</div>
 			<div  class="row">
-				<div  class="form-group col-md-7">
+				<div  class="form-group col-md-7" ng-class="{ 'has-error' : formCadastrarUsuario.idNome.$invalid && !formCadastrarUsuario.idNome.$pristine }">
 					<label>Nome: </label>
 					<input class="form-control" 
 						   ng-model="usuario.nome" 
 						   type="text"
+						   id="idNome"
+						   name="idNome"
+						   maxlength="150"
 						   ng-minlength="3"
-						   ng-maxlength="255">
+						   ng-maxlength="150"/>
+					<p ng-show="principalForm.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
+        			<p ng-show="principalForm.idNome.$error.maxlength" class="help-block">Nome no máximo 150 caracteres.</p>
 				</div>
 			</div>
 			<div  class="row">			
-				 <div class="form-group col-md-4">
+				 <div class="form-group col-md-4" ng-class="{ 'has-error' : formCadastrarUsuario.id.$invalid && !formCadastrarUsuario.id.$pristine }">
 					<label>CPF: </label>
 					<input class="form-control" 
 						   ng-model="usuario.cpf" 
 						   type="text"
-						   maxlength="11"
-						   ng-minlength="11"
-						   mask-cpf>
+						   onkeyup="this.value=this.value.replace(/[' ']/g,'')"
+						   mask-cpf/>
 				 </div>
 			</div>
 			

@@ -9,23 +9,23 @@ app.config([ 'RestangularProvider', '$routeProvider',
 			$routeProvider
 			//Rota da Home
 			.when('/', {
-				templateUrl : 'app/views/home.html',
+				templateUrl : 'app/home/views/home.html',
 				controller : 'HomeCtrl',
 			})			
 			//#########################################################################
 			//################ Rotas do cadastro de usuario ###########################
 			//#########################################################################
 			.when('/cadastrarUsuario', {
-				templateUrl : 'app/views/cadastrarUsuario.html',
+				templateUrl : 'app/manterUsuario/views/cadastrarUsuario.html',
 				controller : 'cadastrarUsuarioCtrl',
 			})
 			//aqui usa passagem de parametro na rota
 			.when('/alterarUsuario/:idUsuario', {
-				templateUrl : 'app/views/alterarUsuario.html',
+				templateUrl : 'app/manterUsuario/views/alterarUsuario.html',
 				controller : 'alterarUsuarioCtrl',
 			})
 			.when('/pesquisarUsuario', {
-				templateUrl : 'app/views/pesquisarUsuario.html',
+				templateUrl : 'app/manterUsuario/views/pesquisarUsuario.html',
 				controller : 'pesquisarUsuarioCtrl',
 			})
 			//#########################################################################

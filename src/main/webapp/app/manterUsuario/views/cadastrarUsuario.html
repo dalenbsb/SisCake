@@ -1,7 +1,7 @@
-<div ng-controller="alterarUsuarioCtrl" class="panel panel-default" >
-	<form name="formAlterarUsuario">
+<div ng-controller="cadastrarUsuarioCtrl" class="panel panel-default" >
+	<form name="formCadastrarUsuario">
 		<div class="panel-heading">
-			<h1>Alterar Usuário</h1>
+			<h1>Cadastro de Usuário</h1>
 		</div>
 		
 		<div class="panel-body">
@@ -14,18 +14,19 @@
 			</div>
 			
 			<div  class="row">
-				<div  class="form-group col-md-7" ng-class="{ 'has-error' : formAlterarUsuario.idNome.$invalid && !formAlterarUsuario.idNome.$pristine }">
+				<div  class="form-group col-md-7" ng-class="{ 'has-error' : formCadastrarUsuario.idNome.$invalid && !formCadastrarUsuario.idNome.$pristine }">
 					<label>Nome: </label>
 					<input id="idNome"
 						   name="idNome"
 						   class="form-control" 
 						   ng-model="usuario.nome" 
 						   type="text"
+						   placeholder="Digite o Nome" 
 						   ng-minlength="minlength"
 						   ng-maxlength="150"
 						   required>
-					<p ng-show="formAlterarUsuario.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
-        			<p ng-show="formAlterarUsuario.idNome.$error.maxlength" class="help-block">Nome no máximo 150 caracteres.</p>
+					<p ng-show="formCadastrarUsuario.idNome.$error.minlength" class="help-block">Nome no mínimo 3 caracteres.</p>
+        			<p ng-show="formCadastrarUsuario.idNome.$error.maxlength" class="help-block">Nome no máximo 150 caracteres.</p>
 				</div>
 			</div>
 			
@@ -35,22 +36,24 @@
 					<input class="form-control" 
 						   ng-model="usuario.cpf" 
 						   type="text"
-						   ng-minlength="11"
-						   ng-maxlength="11"  
-						   required>
+						   placeholder="Digite o CPF"
+						   required
+						   onkeyup="this.value=this.value.replace(/[' ']/g,'')"
+						   mask-cpf/>
 				 </div>
 			</div>
 			
-			<div  class="row" ng-class="{ 'has-error' : formAlterarUsuario.idEmail.$invalid && !formAlterarUsuario.idEmail.$pristine }">			
+			<div  class="row" ng-class="{ 'has-error' : formCadastrarUsuario.idEmail.$invalid && !formCadastrarUsuario.idEmail.$pristine }">			
 				 <div class="form-group col-md-4">
 					<label>e-mail: </label>
 					<input id="idEmail"
 						   name="idEmail"
 						   class="form-control" 
 						   ng-model="usuario.dsEmail" 
-						   type="email" 
+						   type="email"
+						   placeholder="Digite o E-mail" 
 						   required>
-					<p ng-show="formAlterarUsuario.idEmail.$error.email" class="help-block">digite um e-mail válido.</p>
+					<p ng-show="formCadastrarUsuario.idEmail.$error.email" class="help-block">digite um e-mail válido.</p>
 				 </div>
 			</div>
 			
