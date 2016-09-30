@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SisCake</name>
+	<url>http://localhost:8080/</url>
 	<build>
 		<plugins>
 			<plugin>
@@ -93,4 +94,5 @@
 			<version>2.2.1.RELEASE</version>
 		</dependency>
 	</dependencies>
+	
 </project>
