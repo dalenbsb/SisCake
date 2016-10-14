@@ -2,7 +2,9 @@ app.directive('loading',['$http',function($http) {
 	return {
 		restrict: 'E',
 		replace: true,
-		template: '<div ng-show="loading" class="container bg-info">Carregando...</div>',
+//		template: '<div ng-show="loading" class="container bg-info">Carregando...</div>',
+		templateUrl:'app/html/carregando.html', 
+		
 		link: function (scope, elm, attrs){
 			scope.isLoading = function (){
 				return $http.pendingRequests.length > 0;
