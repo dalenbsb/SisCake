@@ -2,13 +2,7 @@
 	
 	<form name="principalForm">
 		
-		<div class="panel-heading">
-			<h1>Pesquisa de Usuário</h1>
-		</div>
-		
-		<div class="panel-body">
-		
-			<div class="container bg-warning">
+		   <div class="container bg-warning">
 		   		<span>
 		   			{{messagemInfo}}
 		   		</span>
@@ -19,7 +13,14 @@
 		   			{{messagemSucess}}
 		   		</span>
 		   </div>
-		   
+		
+		
+		<div class="panel-heading">
+			<h1>Pesquisar de Usuário</h1>
+		</div>
+		
+		<div class="panel-body">
+		
 			<div  class="row">
 				<div  class="form-group col-md-1" ng-class="{ 'has-error' : formCadastrarUsuario.id.$invalid && !formCadastrarUsuario.id.$pristine }">
 					<label>ID: </label>

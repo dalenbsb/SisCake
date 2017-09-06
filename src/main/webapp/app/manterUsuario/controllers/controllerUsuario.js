@@ -117,8 +117,9 @@ app.controller('alterarUsuarioCtrl', function(Restangular, $rootScope, $scope, $
 
 //Controller responsavel por ter as ações de salvar e alterar
 //como o metodo é o mesmo foi usado um controller para manter apenas um código
-app.controller('salvarAlterarCtrl', function(Restangular, $scope, $location) {
-	
+app.controller('salvarAlterarCtrl', function(Restangular, $scope, $location, UsuarioService) {
+
+	//Deprecated - atualizar para o salvar2
     $scope.salvar = function() {
     	console.log("Entrando no função salvar");
         console.log($scope.usuario);
@@ -127,9 +128,28 @@ app.controller('salvarAlterarCtrl', function(Restangular, $scope, $location) {
         Restangular.all("manterUsuario/saveUsuario").post($scope.usuario).then(function() {
             console.log("Usuario salvo");
         });
+        
+//        UsuarioService.salvar($scope.usuario);
+        
         $scope.closeModal();
         $location.path('/pesquisarUsuario');
     };
+    
+    
+    $scope.salvar2 = function() {
+    	console.log("Entrando no função salvar2");
+    	alert('aqui');
+        console.log($scope.usuario);
+        
+        $scope.usuario.cpf = $scope.usuario.cpf.replace( /[^0-9]+/g, '');
+        
+        UsuarioService.salvar($scope.usuario);
+        
+        $scope.closeModal();
+        $location.path('/pesquisarUsuario');
+    };
+	
+
     
     //###########################
     //##### CONTROLE MODAL ######
@@ -144,6 +164,7 @@ app.controller('salvarAlterarCtrl', function(Restangular, $scope, $location) {
     	$scope.showModal = false;
     };
     //###########################
+    
 });
 
 //Controller responsável por carregar a tela de Cadastrar Usuário

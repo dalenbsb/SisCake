@@ -2,52 +2,167 @@
 <html ng-app="app">
 
 <head>
+   <title>SISCAKE</title>
+
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta http-equiv="content-language" content="pt-br" />
-   <title>SISCAKE</title>
+   
+   <!-- [BEGIN] CSS dos Templates -->
+   <link rel="stylesheet" href="template/css/reset.css" type="text/css" media="screen">
+   <link rel="stylesheet" href="template/css/style.css" type="text/css" media="screen">
+   <link rel="stylesheet" href="template/css/grid.css" type="text/css" media="screen">  
+   <!-- [END] CSS dos Templates -->
    
    <link rel="stylesheet" href="assets/bootstrap/3.3.7/css/bootstrap.min.css" />
+   
+   <!-- import css loading -->
+   <link rel="stylesheet" href="app/css/loading.css" />
+    
 </head>
 
 <body>
    
    <!-- Directive criada para quando acontecer uma submissão aparecer o carregando -->
    <loading></loading>
+   <div class="border-top">
+        <div class="main">
+        	<!-- [BEGIN] HEADER -->
+        	<header>
+	        	<h1>
+	                <a class="img-indent" href="#/home">SisCake</a>
+	                <span>Sistema de Gerenciamento de Bolos</span>
+	            </h1>
+	            
+	            <div class="menu-row">
+	                <div class="container_24">
+	                    <div class="indent-bot2">
+	                        <div class="grid_24 index-2">
+	                            <nav class="fleft">
+	                                <ul class="menu">
+	        							<li ng-class="{active: activetab == '/'}"><a href="#/home">Inicio</a></li>
+	   									<li ng-class="{active: activetab == '/pesquisarUsuario'}"><a href="#/pesquisarUsuario">Usuarios</a></li>
+	   								</ul>
+	   							</nav>
+	   						</div>
+	   					</div>
+	   				</div>
+	      		</div>
+            </header>
+        	<!-- [END] HEADER -->
+        	
+        	<!-- [BEGIN] CONTENT -->
+        	<section id="content">
+            	<div class="content-bg">
+                	<div class="container_24">
+                    	<div class="wrapper">
+                        	<article class="grid_16">
+                           		<div class="container" ng-view>
    
-	<div class="container">
-	 	<ul class="nav nav-tabs">
-	      <li ng-class="{active: activetab == '/'}"><a href="#/home">Inicio</a></li>
-	      <li ng-class="{active: activetab == '/pesquisarUsuario'}"><a href="#/pesquisarUsuario">Usuários</a></li>
-   		</ul>
-   </div>
+   								</div>
+                        	</article>
+                    	</div>
+                	</div>
+            	</div>
+            </section>
+        	<!-- [END] CONTENT -->
+        	
+        	<!-- [BEGIN] FOOTER -->
+        	<footer>
+                <div class="container_24">
+                    <div class="wrapper p6">
+                        <article class="grid_7 spacer-1 maxheight">
+                            <h4 class="color-1 p0">Pricipais Produtos</h4>
+                            <ul class="list-1">
+                                <li><a href="#">Bolos</a></li>
+                                <li><a href="#">Doces</a></li>
+                                <li><a href="#">Salgados</a></li>
+<!--                                 <li><a href="#">Herbicides</a></li> -->
+<!--                                 <li><a href="#">Miticides</a></li> -->
+<!--                                 <li><a href="#">Micronutrient</a></li> -->
+                            </ul>
+                        </article>
+                        <article class="grid_10 spacer-2 maxheight">
+                            <h4 class="color-1 p0">Siga-nos</h4>
+                            <ul class="list-services wrapper">
+                                <li><div class="g-plusone" data-count="false"></div></li>
+<!--                                 <li><a class="item-2 tooltips" title="twitter" href="#"></a></li> -->
+                                <li><a class="item-3 tooltips" title="ember" href="#"></a></li>
+                                <li><a class="item-4 tooltips" title="delicious" href="#"></a></li>
+                                <li><a class="item-5 tooltips" title="flickr" href="#"></a></li>
+                            </ul>
+                        </article>
+                        <article class="grid_7 maxheight">
+<!--                             <h4 class="color-1 p0">Our Newsletter</h4> -->
+<!--                             <form id="subscribe-form" method="post" enctype="multipart/form-data"> -->
+<!--                                 <fieldset>	 -->
+<!--                                     <input name="email" type="text" value="Enter Your E-Mail" onFocus="if(this.value=='Enter Your E-Mail'){this.value=''}" onBlur="if(this.value==''){this.value='Enter Your E-Mail'}" /> -->
+<!--                                     <div class="alignright"> -->
+<!--                                         <a class="button" href="#" onClick="document.getElementById('subscribe-form').submit()">Subscribe</a> -->
+<!--                                     </div> -->
+<!--                                     <a class="link-4" href="#">Unsubscribe Here</a> -->
+<!--                                 </fieldset> -->
+<!--                             </form> -->
+                        </article>
+                    </div>
+                </div>
+                <div class="footer-row">
+                    <strong>SisCake &copy; 2017 | <a href="index-5.html">Política de Privacidade</a></strong>
+                </div>
+            </footer>
+        	<!-- [END] FOOTER -->
+        </div>
+    </div>
+    
    
-   <div class="container" ng-view></div>
+   <!-- [BEGIN] Import dos Tamplates -->
+   <script type="application/javascript" src="template/js/jquery-1.6.3.min.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/cufon-yui.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/cufon-replace.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/Duality_400.font.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/Century_Gothic_400.font.js" type="text/javascript"></script> 
+   <script type="application/javascript" src="template/js/Lobster_400.font.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/RomanSerif_500.font.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/superfish.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/jquery.hoverIntent.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/FF-cash.js" type="text/javascript"></script> 
+   <script type="application/javascript" src="template/js/jquery.equalheights.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/easyTooltip.js" type="text/javascript"></script>
+   <script type="application/javascript" src="template/js/script.js" type="text/javascript"></script>
+<!--    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script> -->
    
-   <script src="vendor/underscore/1.7.0/underscore-min.js"></script>
-   <script src="vendor/lodash/3.0.0/lodash.min.js"></script>
+   <script type="text/javascript"> Cufon.now(); </script>
+   <!-- [END] Import dos Tamplates -->
+   
+   <script type="application/javascript" src="vendor/underscore/1.7.0/underscore-min.js"></script>
+   <script type="application/javascript" src="vendor/lodash/3.0.0/lodash.min.js"></script>
 
-   <script src="vendor/angular/1.3.10/angular.min.js"></script>
-   <script src="vendor/restangular/1.4.0/restangular.min.js"></script>
-   <script src="vendor/angular-route/1.3.10/angular-route.min.js"></script>
-   <script src="vendor/ng-table/0.3.1/ng-table.min.js"></script>
+   <script type="application/javascript" src="vendor/angular/1.3.10/angular.min.js"></script>
+   <script type="application/javascript" src="vendor/restangular/1.4.0/restangular.min.js"></script>
+   <script type="application/javascript" src="vendor/angular-route/1.3.10/angular-route.min.js"></script>
    
-   <script src="vendor/angular-ui-booststrap/0.12.0/ui-bootstrap-0.12.0.js"> </script>
-   <script src="vendor/angular-ui-booststrap/0.12.0/ui-bootstrap-tpls-0.12.0.js"> </script>
+   <script type="application/javascript" src="vendor/ng-table/0.3.1/ng-table.min.js"></script>
    
-   <!-- import css loading -->
-   <script src="/app/css/loading.css"></script>
-
+   <script type="application/javascript" src="vendor/angular-ui-booststrap/0.12.0/ui-bootstrap-0.12.0.js"> </script>
+   <script type="application/javascript" src="vendor/angular-ui-booststrap/0.12.0/ui-bootstrap-tpls-0.12.0.js"></script>
+   
+   
    <!-- Import principal -->
-   <script src="app/app.js"></script>
+   <script type="application/javascript" src="app/app.js"></script>
    
    <!-- imports das diretivas criadas -->
-   <script src="app/diretivas/diretivaLoading.js"></script>
-   <script src="app/diretivas/diretivaValidNumber.js"></script>
-   <script src="app/diretivas/diretivaCpf.js"></script>
+   <script type="application/javascript" src="app/diretivas/diretivaLoading.js"></script>
+   <script type="application/javascript" src="app/diretivas/diretivaValidNumber.js"></script>
+   <script type="application/javascript" src="app/diretivas/diretivaCpf.js"></script>
    
    <!-- imports das controllers criadas -->
-   <script src="app/manterUsuario/controllers/controllerUsuario.js"></script>
-   <script src="app/home/controllers/controllerHome.js"></script>
+   <script type="application/javascript" src="app/manterUsuario/controllers/controllerUsuario.js"></script>
+   <script type="application/javascript" src="app/home/controllers/controllerHome.js"></script>
+   
+   <!-- imports dos services -->
+   <script type="application/javascript" src="app/manterUsuario/services/usuarioService.js"></script>
+   
+   <!-- imports dos factories -->
+   <script type="application/javascript" src="app/manterUsuario/factories/usuarioFactory.js"></script>
    
 </body>
 </html>
