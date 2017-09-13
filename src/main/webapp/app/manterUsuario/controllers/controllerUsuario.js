@@ -81,28 +81,37 @@ app.controller('pesquisarUsuarioCtrl', function(Restangular,$rootScope, $scope, 
 
 
 //Esse controller server para carregar os dados para alteração
-//Restangular = Responsável por fazer a ponte com o back-end.
 //$rootScope = Responsável por todo o scopo da aplicação.
 //$scope = responsável pela tela do controller
 //$routeParams = Responsável por pegar os parametros passados na url.
 //$location = Responsável pelos caminhos.
-app.controller('alterarUsuarioCtrl', function($rootScope, $scope, $routeParams, $location,Restangular, UsuarioService) {
+app.controller('alterarUsuarioCtrl', function($rootScope, $scope, $routeParams, $location, UsuarioService) {
 
 	$rootScope.activetab = $location.path();//ativa a aba
 	$scope.minlength = 3;
 	
 	$scope.usuario = angular.copy(UsuarioService.usuarioVazio());
 	
-	//Pega o id do parametro passado na url
-//	$scope.usuario = UsuarioService.findById($routeParams.idUsuario);
-	
-	Restangular.one("manterUsuario/findUsuarioById", $routeParams.idUsuario).get()
-	.then(function(data) {
-		console.log("antes de setar os dados no usuario");
-		$scope.usuario = data;
-		console.log("Carrega usuario para Alteração");
-	 }
+	UsuarioService.findById($routeParams.idUsuario, 	
+		//Essa função é o callback
+		function(data) {
+			console.log("antes de setar os dados no usuario");
+			$scope.usuario = data;
+			console.log("Carrega usuario para Alteração");
+	 	}
 	);
+	
+
+	UsuarioService.findByIdThen($routeParams.idUsuario).then( 	
+		//Essa é o then
+		function(data) {
+			console.log("antes de setar os dados no usuario");
+			$scope.usuario = data;
+			console.log("Carrega usuario para Alteração");
+		}
+	);
+		
+	
 	
 	console.log('########### usuario consultado: ' + $scope.usuario);
 });
@@ -117,7 +126,7 @@ app.controller('salvarAlterarCtrl', function($scope, $location, UsuarioService) 
         
         $scope.usuario.cpf = $scope.usuario.cpf.replace( /[^0-9]+/g, '');
         
-        UsuarioService.salvar($scope.usuario);
+        UsuarioService.salvarAlterar($scope.usuario);
         
         $scope.closeModal();
         $location.path('/pesquisarUsuario');
