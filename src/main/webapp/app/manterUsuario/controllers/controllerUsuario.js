@@ -92,14 +92,14 @@ app.controller('alterarUsuarioCtrl', function($rootScope, $scope, $routeParams, 
 	
 	$scope.usuario = angular.copy(UsuarioService.usuarioVazio());
 	
-	UsuarioService.findById($routeParams.idUsuario, 	
-		//Essa função é o callback
-		function(data) {
-			console.log("antes de setar os dados no usuario");
-			$scope.usuario = data;
-			console.log("Carrega usuario para Alteração");
-	 	}
-	);
+//	UsuarioService.findById($routeParams.idUsuario, 	
+//		//Essa função é o callback
+//		function(data) {
+//			console.log("antes de setar os dados no usuario");
+//			$scope.usuario = data;
+//			console.log("Carrega usuario para Alteração");
+//	 	}
+//	);
 	
 
 	UsuarioService.findByIdThen($routeParams.idUsuario).then( 	
