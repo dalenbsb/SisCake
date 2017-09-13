@@ -86,24 +86,16 @@ app.controller('pesquisarUsuarioCtrl', function(Restangular,$rootScope, $scope, 
 //$scope = responsável pela tela do controller
 //$routeParams = Responsável por pegar os parametros passados na url.
 //$location = Responsável pelos caminhos.
-app.controller('alterarUsuarioCtrl', function(Restangular, $rootScope, $scope, $routeParams, $location) {
+app.controller('alterarUsuarioCtrl', function($rootScope, $scope, $routeParams, $location,Restangular, UsuarioService) {
 
 	$rootScope.activetab = $location.path();//ativa a aba
 	$scope.minlength = 3;
 	
-	var usuarioVazio = {
-        id: null,
-        nome: "",
-        cpf: "",
-        dsEmail:"",
-        senha:""
-	}
-
-	$scope.usuario = angular.copy($scope.usuarioVazio);
+	$scope.usuario = angular.copy(UsuarioService.usuarioVazio());
 	
-	console.log("############## teste param: "+$routeParams.idUsuario);
+	//Pega o id do parametro passado na url
+//	$scope.usuario = UsuarioService.findById($routeParams.idUsuario);
 	
-	//Pega o id do parametro passado na url, vai no back-end e retorna o dado
 	Restangular.one("manterUsuario/findUsuarioById", $routeParams.idUsuario).get()
 	.then(function(data) {
 		console.log("antes de setar os dados no usuario");
@@ -112,34 +104,16 @@ app.controller('alterarUsuarioCtrl', function(Restangular, $rootScope, $scope, $
 	 }
 	);
 	
+	console.log('########### usuario consultado: ' + $scope.usuario);
 });
 
 
 //Controller responsavel por ter as ações de salvar e alterar
 //como o metodo é o mesmo foi usado um controller para manter apenas um código
-app.controller('salvarAlterarCtrl', function(Restangular, $scope, $location, UsuarioService) {
-
-	//Deprecated - atualizar para o salvar2
+app.controller('salvarAlterarCtrl', function($scope, $location, UsuarioService) {
+   
     $scope.salvar = function() {
     	console.log("Entrando no função salvar");
-        console.log($scope.usuario);
-        
-        $scope.usuario.cpf = $scope.usuario.cpf.replace( /[^0-9]+/g, '');
-        Restangular.all("manterUsuario/saveUsuario").post($scope.usuario).then(function() {
-            console.log("Usuario salvo");
-        });
-        
-//        UsuarioService.salvar($scope.usuario);
-        
-        $scope.closeModal();
-        $location.path('/pesquisarUsuario');
-    };
-    
-    
-    $scope.salvar2 = function() {
-    	console.log("Entrando no função salvar2");
-    	alert('aqui');
-        console.log($scope.usuario);
         
         $scope.usuario.cpf = $scope.usuario.cpf.replace( /[^0-9]+/g, '');
         
