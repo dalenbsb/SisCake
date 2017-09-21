@@ -4,7 +4,7 @@ Sistema de Gerenciamento ...
 
 Arquitetura
 -----------
-Angularjs + JDK 1.7 + Spring MVC + Rest 
+Angularjs + JDK 1.8 + Spring MVC + Rest 
 
 Executado no Eclipse
 --------------------
